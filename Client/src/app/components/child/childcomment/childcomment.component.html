@@ -1,0 +1,24 @@
+<div class="card " style=" width: 128rem; height:59rem;">
+        <div class="row" style="width: 100rem; height:10rem;">
+                <div class="container p-3 my-3  text-black " style="margin-left:500px">
+
+                        <div class="card  border-dark mb-3" >
+                               
+                                        <div class="commentbox">
+                                            <div class="card-header  bg-dark border-success">
+                                                <h4 class="text-white ">Comments ({{count}})</h4>
+                                            </div>
+                                            <br>
+                                            <div class="col-12 col-sm-12 body">
+                                                <div class="comment-container">
+                                                        <div class="comment-form">
+                                                                <app-comment (usercomment)="receiveComment($event)"></app-comment>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <app-comments [postComment]="comments" (countComments)="recieveCount($event)"></app-comments>
+                        </div>
+                </div>
+        </div>
+</div>

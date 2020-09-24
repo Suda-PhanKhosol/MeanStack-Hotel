@@ -1,0 +1,160 @@
+
+<div class="card" style="min-width: 90rem; margin-top: 2%; margin-left: 10%; margin-right: 10%;">
+    
+        <div class="row">
+          <div class="col-md-7">
+            <h2>Extra Room Service</h2>
+            <div class="table-responsive-md">  
+            <table class="table table-secondary table-inverse">
+                <thead class="thead-inverse">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of ers; index as i">
+                        <td scope="row">{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.price}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+          </div>
+         
+
+          <div class="col">
+
+            <h2>Choose Extra Room Service</h2>
+             
+            <form [formGroup]="ersForm">
+                <div class="card-body">
+
+                  <div class="row">
+                    <div class="col-md-2">
+                        Room ID:
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                          <input type="text" class="form-control" formControlName='roomid'>
+                          <div *ngIf="roomid.invalid && (roomid.dirty || roomid.touched)" class="alert alert-danger">
+                            <div *ngIf="roomid.errors.required">
+                              Room ID is required.
+                            </div>
+                            <div *ngIf="roomid.errors.pattern">
+                              You Room ID is incorrect!!
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="form-group">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="wifi service" id="1" formControlName='wifi' >
+                  <label class="form-check-label" for="1">
+                    WIFI service
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="shuttle service" id="2" formControlName='wifi' >
+                  <label class="form-check-label" for="2">
+                    Shuttle service
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="tour service" id="3" formControlName='wifi'>
+                  <label class="form-check-label" for="3">
+                    Tour guide service
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="luandary service" id="4" formControlName='wifi'>
+                  <label class="form-check-label" for="4">
+                    Laundry service
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="clean service" id="5" formControlName='wifi'>
+                  <label class="form-check-label" for="5">
+                    Clean service
+                  </label>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-dark" (click)="add()" >Add</button>&nbsp;
+                    <button type="reset" class="btn btn-danger" (click)="resetForm()">Reset</button>
+                </div>
+            </div>
+
+            </div>
+
+              </form>
+              
+            
+          </div>
+        </div>
+  
+        
+          <div class="row">
+            <div class="col">
+            <h2>See more detail of extra room service</h2>
+          </div>
+        </div>
+          <div class="row">
+            <div class="col-md-6">
+                <input type="number" [(ngModel)]="id" class="form-control" placeholder="Add ID" >
+            </div>
+        </div><br>
+        <div class="row text-center">
+            <div class="col-md-6">
+                <div [ngSwitch]="id">
+                    <div *ngSwitchCase="1">
+                        <div class="alert alert=success" role="alert">
+                            <strong>You will get high speed WIFI !</strong>
+                        </div>
+                    </div>
+                    <div *ngSwitchCase="2">
+                      <div class="alert alert=success" role="alert">
+                          <strong>You will get bus shuttle !</strong>
+                      </div>
+                  </div>
+                  <div *ngSwitchCase="3">
+                    <div class="alert alert=success" role="alert">
+                        <strong>travel with expertly guide !</strong>
+                    </div>
+                </div>
+                <div *ngSwitchCase="4">
+                  <div class="alert alert=success" role="alert">
+                      <strong>The cleanest laundary !</strong>
+                  </div>
+              </div>
+              <div *ngSwitchCase="5">
+                <div class="alert alert=success" role="alert">
+                    <strong>Kind Housekeeper !</strong>
+                </div>
+            </div>
+
+                    <div *ngSwitchDefault>
+                        <div class="alert alert-danger" role="alert">
+                            <strong>Add ID of service!!</strong>                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+   
+        
+   </div>

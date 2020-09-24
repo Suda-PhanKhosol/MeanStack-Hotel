@@ -1,0 +1,71 @@
+<nav class="navbar navbar-expand-md navbar-light sticky-top" style="background-color: #e3f2fd;">
+  <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target" type="button"
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand ml-5">
+    <i class="fa fa-bed" aria-hidden="true"></i>
+  </a>
+
+  <div class="collapse navbar-collapse" id="collapse_target">
+    <ul class="navbar-nav py-2 mr-auto">
+      <li class="nav-item">
+        <!-- active -->
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/detail" routerLinkActive="active">Room Detail</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/promotion" routerLinkActive="active" href="#">Promotion
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/roomservice" routerLinkActive="active">Room Service</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/childcomment" routerLinkActive="active">Criticize</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/bookroom" routerLinkActive="active">Booking</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/roomstatus" routerLinkActive="active">Manege Room Status
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/addon" routerLinkActive="active">Extra service
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/showroom" routerLinkActive="active">Show Room Status
+        </a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav">
+      <div class="dropdown">
+        <button class="btn btn-outline-success dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Cutomer
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <button class="dropdown-item" type="button" routerLink="/cuslogin">
+            Sign in
+          </button>
+          <button class="dropdown-item" type="button" routerLink="/redister">
+            Sign up
+          </button>
+          <button class="dropdown-item" type="button" (click)="logoutSystem()">
+            logout
+            <!-- [disabled]="logout" -->
+          </button>
+        </div>
+      </div>
+      &nbsp;&nbsp;
+      <button class="btn btn-outline-success my-2 my-sm-0" type="button" routerLink="/emlogin">
+        admin
+      </button>
+    </ul>
+  </div>
+</nav>

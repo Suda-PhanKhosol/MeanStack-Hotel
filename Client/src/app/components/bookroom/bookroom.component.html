@@ -1,0 +1,105 @@
+<div class="container " style="margin-top:0px">
+        <div class="card" style="width: 2000px; height: 990px;">
+            <div class="card-header  font-weight-bolder bg-info " >
+                
+                <ul class="nav nav-pills card-header-pills">
+                        <li class="nav-item">
+                          <a class="nav-link " routerLink="/bookroom" routerLinkActive="active" >Add Booking</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" routerLink="/home" routerLinkActive="active">Show My Book</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link " routerLink="/home" routerLinkActive="active">Cancle Booking</a>
+                        </li>
+                       
+                </ul>
+            </div>
+    `       <div class="card-body  " style="margin-left:125px">
+
+                <div class="row">
+                    <div class="col-md-50"  style="width: 40rem;  margin-left:500px">
+                        <img class="card-img-top" src="https://q-cf.bstatic.com/images/hotel/max1280x900/148/148382753.jpg" alt="Card image"style="width:100%">
+                        
+                        <form [formGroup]="profileForm"><br>
+                            <div class="form-group">
+                                    <label class="" for="">Room Number</label>
+                                    <select class="form-control"  formControlName="room" >
+                                        <option value=""></option>
+                                        <option value="A101">A101</option>
+                                        <option value="A202">A202</option>
+                                        <option value="A303">A303</option>
+                                        <option value="A404">A404</option>   
+                                        <option value="A505">A505</option>   
+                                        <option value="A606">A606</option>   
+                                    </select>
+                                    <div *ngIf="guest.invalid && (guest.dirty || guest.touched)" class="alert alert-danger">
+                                            <div *ngIf="guest.errors.required">
+                                              Your Room Number is required.
+                                            </div>
+                                    </div>
+                            </div>
+                          
+                            <div class="form-group">
+                                <label class="" for="">Guest(s)</label>
+                                <select class="form-control"  formControlName="guest" >
+                                    <option value="Mr"></option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>   
+                                    <option value="8">5</option>   
+                                    <option value="6">6</option>   
+                                </select>
+                                <div *ngIf="guest.invalid && (guest.dirty || guest.touched)" class="alert alert-danger">
+                                        <div *ngIf="guest.errors.required">
+                                          Your Guest is required.
+                                        </div>
+                                </div>
+                            </div>
+                         
+                            <div class="form-check form-check-inline">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="radio" name="sex" value="Male" formControlName='type'>Normal
+                                    </label>
+                                    
+                            </div>
+                            <div class="form-check form-check-inline">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="radio" name="sex" value="FeMale" formControlName='type'>Sweet
+                                    </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" name="sex" value="FeMale" formControlName='type'>VIP
+                                        </label>
+                            </div><br><br>
+                            <div class="form-group">
+                                    <label class="" for="">Check In</label> <br>
+
+                                    <input type="date" id="exampleInput" name="input" ng-model="example.value" placeholder="yyyy-MM-dd" min="2020-01-01" max="2020-12-31" required formControlName='datein'/>
+                            </div>
+                            <div class="form-group">
+                                    <label class="" for="">Check Out</label> <br>
+                                    <input type="date" id="exampleInput" name="input" ng-model="example.value" placeholder="yyyy-MM-dd" min="2020-01-01" max="2020-12-31" required formControlName='dateout'/>
+                                   
+                            </div>
+                           
+                            <button type="submit" class="btn btn-success">Book Now</button>&nbsp;
+                            <button type="reset" class="btn btn-danger">Reset</button>
+                            
+                        </form>
+                    </div>                      
+                 </div>
+
+
+
+                
+
+
+            </div>
+        </div>
+    </div>
+
+    
+      

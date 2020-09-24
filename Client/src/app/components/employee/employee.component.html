@@ -1,0 +1,164 @@
+<div class="container " style="margin-left:530px">
+    <div class="card">
+        <div class="card-header  font-weight-bolder " >
+            
+            <ul class="nav nav-pills card-header-pills">
+                    <li class="nav-item">
+                      <a class="nav-link " routerLink="/employee" routerLinkActive="active" >Add Employee</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" routerLink="/emlogin" routerLinkActive="active">Show Employee</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link " routerLink="/emlogin" routerLinkActive="active">Update/Delete</a>
+                    </li>
+                   
+            </ul>
+        </div>
+`       <div class="card-body  " style="margin-left:100px">
+            <div class="row">
+                <div class="col-md-7 ">
+                      
+                 
+                    <form [formGroup]="profileForm">
+                        <div class="form-group">
+                            <label class="" for="">Title</label>
+                            <select class="form-control"  formControlName="title">
+                                <option value=""></option>
+                                <option value="Mr">Mrs</option>
+                                <option value="Mrs">Mrs</option>
+                                <option value="Miss">Miss</option>
+                                <option value="Ms">Ms</option>   
+                            </select>
+                            <div *ngIf="title.invalid && (title.dirty || title.touched)" class="alert alert-danger">
+                                    <div *ngIf="title.errors.required">
+                                            Your Title is required.
+                                    </div>
+                            </div>
+                        </div>
+                       
+                        <div class="form-group">
+                                <label>Name.</label>
+                                <input type="text" class="form-control" formControlName='name'>          
+                                <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                                        <div *ngIf="name.errors.required">
+                                          Your Name is required.
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="form-group">
+                                <label>Surname</label>
+                                <input type="text" class="form-control" formControlName='sur' id="sur">
+                                <div *ngIf="sur.invalid && (sur.dirty || sur.touched)" class="alert alert-danger">
+                                        <div *ngIf="sur.errors.required">
+                                          Your Surname is required.
+                                        </div>
+                                </div>
+                        </div>
+
+                        <div class="form-group">
+                              
+                                <label>Mobile Phone</label>
+                                <input type="text" class="form-control" formControlName='tel'>
+                                <div *ngIf="tel.invalid && (tel.dirty || tel.touched)" class="alert alert-danger">
+                                  <div *ngIf="tel.errors.required">
+                                    Phone is required.
+                                  </div>
+                                  <div *ngIf="tel.errors.pattern">
+                                    You ID is incorrect!!
+                                  </div>
+                                </div>
+                        </div>
+                        
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="radio" name="sex" value="Male" formControlName='sex'>Male
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="radio" name="sex" value="FeMale" formControlName='sex'>FeMale
+                                </label>
+                        </div>
+                        <br/><br/>
+
+                        <div class="form-group">
+                                <label>Email</label>
+                                <input type="text" class="form-control" formControlName='email'>     
+                                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                                        <div *ngIf="email.errors.required">
+                                          Room ID is required.
+                                        </div>
+                                        <div *ngIf="email.errors.pattern">
+                                          You Room ID is incorrect!!
+                                        </div>
+                                </div>
+                        </div>
+
+                        <div formGroupName="address">
+                                <h4>Address</h4>
+                                <div class="form-group">
+                                  <label>Street</label>
+                                  <input type="text" class="form-control" formControlName='street'>
+                                  <div *ngIf="street.invalid && (street.dirty || street.touched)" class="alert alert-danger">
+                                        <div *ngIf="street.errors.required">
+                                          Your Street is required.
+                                        </div>
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label>City</label>
+                                  <input type="text" class="form-control" formControlName='city'>
+                                  <div *ngIf="city.invalid && (city.dirty || city.touched)" class="alert alert-danger">
+                                        <div *ngIf="city.errors.required">
+                                          Your City is required.
+                                        </div>
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label>State</label>
+                                  <input type="text" class="form-control" formControlName='state'>
+                                   <div *ngIf="state.invalid && (state.dirty || state.touched)" class="alert alert-danger">
+                                        <div *ngIf="state.errors.required">
+                                          Your State is required.
+                                        </div>
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label>ZIP</label>
+                                  <input type="text" class="form-control" formControlName='zip'>
+                                  <div *ngIf="zip.invalid && (zip.dirty || zip.touched)" class="alert alert-danger">
+                                        <div *ngIf="zip.errors.required">
+                                          Your ZIP is required.
+                                        </div>
+                                  </div>
+                                </div>
+                        </div>
+
+                        <br>
+                        <div formArrayName="aliases">
+                                <h4>Address Detail</h4>
+                                <button class="btn btn-success" (click)="addAliases()">Add</button>
+
+                                <div class="form-group" *ngFor="let alias of aliases.controls; let i=index">
+                                    <label>Alias: {{i}}</label>
+                                    <input type="text" class="form-control" [formControlName]="i">
+                                </div>
+                        </div>
+
+                  
+                        <button type="submit" class="btn btn-success">Submit</button>&nbsp;
+                        <button type="reset" class="btn btn-danger">Reset</button>
+                    </form>
+
+
+                </div>
+
+              
+            </div>
+        </div>
+    </div>
+</div>
+
+

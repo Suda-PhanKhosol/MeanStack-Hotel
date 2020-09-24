@@ -1,0 +1,113 @@
+<div class="card" style="min-width: 50rem; margin-top: 15%; margin-left: 65%;">
+  <div class="card-body">
+    <h4 class="card-title">Register </h4>
+    <div class="row">
+      <div class="col-md-12">
+          <form [formGroup]="RegisterForm">
+          <div class="card">
+            <div class="card-header">
+              Register Form
+          </div>
+            <div class="card-body">
+                <div class="row">
+                <div class="col-md-3">
+                  Name:
+                </div>
+                <div class="col-md-9">
+                  <div class="form-group">
+                    <input type="text" class="form-control" formControlName='Name'>
+                    <div *ngIf="Name.invalid && (Name.dirty || Name.touched)" class="alert alert-danger">
+                      <div *ngIf="Name.errors.required">
+                        Your name is required.
+                      </div>
+                    </div>
+                 </div>
+                </div>
+                </div>
+              <br>
+              <div class="row">
+                <div class="col-md-3">
+                  Email:
+                </div>
+                <div class="col-md-9">
+                  <div class="form-group">
+                  <input type="text" class="form-control" formControlName='Email'>
+                  <div *ngIf="Email.invalid && (Email.dirty || Email.touched)" class="alert alert-danger">
+                    <div *ngIf="Email.errors.required">
+                      Your Email is required.
+                    </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-3">
+                  Age:
+                </div>
+                <div class="col-md-9">
+                  <div class="form-group">
+                  <input type="number" class="form-control" formControlName='Age'>
+                  <div *ngIf="Age.invalid && (Age.dirty || Age.touched)" class="alert alert-danger">
+                    <div *ngIf="Age.errors.required">
+                      Your Age is required.
+                    </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-3">
+                  Phone:
+                </div>
+                <div class="col-md-9">
+                  <div class="form-group">
+                  <input type="text" class="form-control" formControlName='Phone'>
+                  <div *ngIf="Phone.invalid && (Phone.dirty || Phone.touched)" class="alert alert-danger">
+                    <div *ngIf="Phone.errors.required">
+                      Your Phone is required.
+                    </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-3">
+                  Password:
+                </div>
+                <div class="col-md-9">
+                  <div class="form-group">
+                  <input type="password" class="form-control" formControlName='Password'>
+                  <div *ngIf="Password.invalid && (Password.dirty || Password.touched)" class="alert alert-danger">
+                    <div *ngIf="Password.errors.required">
+                      Your Password is required.
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <div class="col-md-9">
+                <div class="form-group">
+                  <input type="file" class="form-control-file" formControlName='file' (change)="onChangeImg($event)">
+                </div>
+            </div>
+              <br>
+              <div class="col-md-9">
+                <img *ngIf="previewLoaded" class="img-thumbnail" [src]="this.RegisterForm.value.img" style="height:150px;">
+            </div>
+              <br>
+              <div class="row">
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-primary" (click)="Register()">Register</button>&nbsp;
+                    <button type="reset" class="btn btn-danger" (click)="resetForm()">Reset</button>
+                </div>
+            </div>
+            </div>
+          </div>
+        </form>
+      </div>
+  </div>
+</div>

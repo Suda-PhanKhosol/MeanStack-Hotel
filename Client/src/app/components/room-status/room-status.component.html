@@ -1,0 +1,80 @@
+<div class="card" style="min-width: 50rem; margin-top: 15%; margin-left: 65%;">
+  <div class="card-body">
+    <h4 class="card-title">Manage Room Status </h4>
+    <div class="row">
+      <div class="col-md-12">
+          <form [formGroup]="RommStatusForm">
+          <div class="card">
+            <div class="card-header">
+              Room Status Manege Form
+          </div>
+            <div class="card-body">
+                <div class="row">
+                <div class="col-md-3">
+                  Room ID:
+                </div>
+                <div class="col-md-9">
+                  <div class="form-group">
+                    <select class="form-control" formControlName="Rid">
+                      <option value=""></option>
+                      <option *ngFor="let item of RoomID" [value]="item">{{item}}</option>
+                    </select>
+                    <div *ngIf="Rid.invalid && (Rid.dirty || Rid.touched)" class="alert alert-danger">
+                      <div *ngIf="Rid.errors.required">
+                        Your RoomID is required.
+                      </div>
+                    </div>
+                 </div>
+                </div>
+                </div>
+              <br>
+              <div class="row">
+                <div class="col-md-3">
+                  Type:
+                </div>
+                <div class="col-md-9">
+                  <div class="form-group">
+                    <select class="form-control" formControlName="type">
+                      <option value=""></option>
+                      <option *ngFor="let item of RoomType" [value]="item">{{item}}</option>
+                    </select>
+                  <div *ngIf="type.invalid && (type.dirty || type.touched)" class="alert alert-danger">
+                    <div *ngIf="type.errors.required">
+                      Your Type is required.
+                    </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-3">
+                  Status:
+                </div>
+                <div class="col-md-9">
+                  <div class="form-group">
+                    <select class="form-control" formControlName="status">
+                      <option value=""></option>
+                      <option *ngFor="let item of RoomStatus" [value]="item">{{item}}</option>
+                    </select>
+                  <div *ngIf="status.invalid && (status.dirty || status.touched)" class="alert alert-danger">
+                    <div *ngIf="status.errors.required">
+                      Your Status is required.
+                    </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-primary" (click)="ManegeStatus()">Manege Status</button>&nbsp;
+                    <button type="reset" class="btn btn-danger" (click)="resetForm()">Reset</button>
+                </div>
+            </div>
+            </div>
+          </div>
+        </form>
+      </div>
+  </div>
+</div>

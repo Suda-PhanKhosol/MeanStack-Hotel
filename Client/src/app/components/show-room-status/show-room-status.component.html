@@ -1,0 +1,25 @@
+<div class="container-fluid" style="margin-top:30px; min-width: 100rem">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Room-Status</h2>
+      <div class="table-responsive-md">
+      <table class="table table-striped table-inverse">
+          <thead class="thead-inverse">
+              <tr>
+                  <th>RoomID.</th>
+                  <th>Type</th>
+                  <th>Status</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let item of RoomStatus; index as i">
+                  <td scope="row">{{item.Rid}}</td>
+                  <td>{{item.type}}</td>
+                  <td>{{item.status}}</td>
+              </tr>
+          </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+</div>

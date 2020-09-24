@@ -1,0 +1,164 @@
+
+
+    <div class="card" style="min-width: 50rem; margin-top: 10%; margin-left: 55%; margin-right: 55%;">
+    
+
+<div class="bg-info container boarder">
+    
+        
+    <div class="card-body">
+        
+        <h1 class="card-title">Room Service</h1>
+        <div class="row">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-12">
+                <form [formGroup]="serviceForm">
+                    <div class="card">
+                        <div class="card-header">
+                            
+                        </div>
+                        <div class="card-body">
+                         
+                            <div class="row">
+                                <div class="col-md-3">
+                                    Name:
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                      <input type="text" class="form-control" formControlName='name'>
+                                      <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                                        <div *ngIf="name.errors.required">
+                                          Your name is required.
+                                        </div>
+                
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    Room ID:
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                      <input type="text" class="form-control" formControlName='roomid'>
+                                      <div *ngIf="roomid.invalid && (roomid.dirty || roomid.touched)" class="alert alert-danger">
+                                        <div *ngIf="roomid.errors.required">
+                                          Room ID is required.
+                                        </div>
+                                        <div *ngIf="roomid.errors.pattern">
+                                          You Room ID is incorrect!!
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h4 class="card-title">Choose room service</h4>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    Breakfast:
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <select class="form-control" formControlName="breakfast">
+                                          <option value=""></option>
+                                          <option *ngFor="let item of foods" [value]="item">{{item}}</option>
+                                        </select>
+                                      </div>
+                                </div>
+                            </div>
+                           
+                            <div class="row">
+                                <div class="col-md-8">
+                            Lunch:
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <select class="form-control" formControlName="lunch">
+                                  <option value=""></option>
+                                  <option *ngFor="let item of foods" [value]="item">{{item}}</option>
+                                </select>
+                              </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-8">
+                    Dinner:
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <select class="form-control" formControlName="dinner">
+                          <option value=""></option>
+                          <option *ngFor="let item of foods" [value]="item">{{item}}</option>
+                        </select>
+                      </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-8">
+            Drink:
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <select class="form-control" formControlName="drink">
+                  <option value=""></option>
+                  <option *ngFor="let item of drinks" [value]="item">{{item}}</option>
+                </select>
+              </div>
+        </div>
+    </div>
+                   
+    <div class="row">
+        <div class="col-md-8">
+    Spa:
+</div>
+<div class="col-md-12">
+    <div class="form-group">
+        <select class="form-control" formControlName="spa">
+          <option value=""></option>
+          <option *ngFor="let item of spas" [value]="item">{{item}}</option>
+        </select>
+      </div>
+</div>
+</div>
+                          
+                          <div class="row">
+                                <div class="col-md-8">
+                                    Note:
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                      <textarea rows="5" class="form-control" formControlName='note'></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button type="button" class="btn btn-dark" (click)="addService()" >Add</button>&nbsp;
+                                    <button type="reset" class="btn btn-danger" (click)="resetForm()">Reset</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>                    
+            </div>
+
+     
+            <div class="col-md-8">
+
+            </div>
+        </div>
+    </div>
+
+      
+</div>
+</div>
+
+
